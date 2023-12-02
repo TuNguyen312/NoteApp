@@ -7,11 +7,12 @@ export default function App() {
   try {
     db.transaction((tx) => {
       tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTO INCREMENT, title TEXT, content TEXT)'
+        'CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, content TEXT)'
       );
       tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS settings (id INTEGER PRIMARY KEY AUTO INCREMENT, theme INTEGER, fontsize INTEGER)'
+        'CREATE TABLE IF NOT EXISTS settings (id INTEGER PRIMARY KEY AUTOINCREMENT, theme INTEGER, fontsize INTEGER)'
       );
+      console.log('Database created');
     });
   }
   catch (error) {
